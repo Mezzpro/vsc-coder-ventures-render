@@ -120,12 +120,17 @@ npm install --production
 
 # Start code-server in background on port 8080
 echo "📋 Starting code-server on port 8080..."
+# Temporarily unset PORT so code-server uses our bind-addr
+RENDER_PORT=$PORT
+unset PORT
 code-server \
     --bind-addr "0.0.0.0:8080" \
     --auth password \
     --disable-telemetry \
     --disable-update-check \
     /home/coder &
+# Restore PORT for proxy
+export PORT=$RENDER_PORT
 
 CODE_SERVER_PID=$!
 echo "✅ Code-server started (PID: $CODE_SERVER_PID)"
