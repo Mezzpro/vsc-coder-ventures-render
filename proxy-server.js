@@ -72,13 +72,45 @@ const proxyOptions = {
     logLevel: 'info',
     onError: (err, req, res) => {
         console.error('❌ Proxy error:', err.message);
-        res.status(500).send('Code-server proxy error');
+        console.error('❌ Error details:', {
+            code: err.code,
+            errno: err.errno,
+            syscall: err.syscall,
+            address: err.address,
+            port: err.port,
+            url: req ? req.url : 'unknown'
+        });
+        if (res && !res.headersSent) {
+            res.status(500).send('Code-server proxy error');
+        }
     },
     onProxyReq: (proxyReq, req, res) => {
         console.log(`🔄 Proxying: ${req.method} ${req.url} → code-server`);
     },
     onProxyRes: (proxyRes, req, res) => {
         console.log(`✅ Code-server response: ${proxyRes.statusCode} for ${req.url}`);
+    },
+    onProxyReqWs: (proxyReq, req, socket, options, head) => {
+        console.log(`🔌 WebSocket proxy request: ${req.url}`);
+        console.log(`🔌 WS Headers:`, req.headers);
+        proxyReq.on('error', (err) => {
+            console.error('❌ WebSocket proxy request error:', err.message);
+        });
+    },
+    onProxyResWs: (proxyRes, proxySocket, proxyHead) => {
+        console.log(`✅ WebSocket proxy response established`);
+        proxySocket.on('error', (err) => {
+            console.error('❌ WebSocket proxy socket error:', err.message);
+        });
+    },
+    onOpen: (proxySocket) => {
+        console.log(`🟢 WebSocket connection opened`);
+        proxySocket.on('error', (err) => {
+            console.error('❌ WebSocket open error:', err.message);
+        });
+    },
+    onClose: (res, socket, head) => {
+        console.log(`🔴 WebSocket connection closed`);
     }
 };
 
@@ -100,7 +132,24 @@ const server = app.listen(PORT, '0.0.0.0', () => {
 // Handle WebSocket upgrades for VS Code
 server.on('upgrade', (request, socket, head) => {
     console.log('🔌 WebSocket upgrade request');
-    proxy.upgrade(request, socket, head);
+    console.log('🔌 Upgrade URL:', request.url);
+    console.log('🔌 Upgrade headers:', request.headers);
+    
+    socket.on('error', (err) => {
+        console.error('❌ WebSocket upgrade socket error:', err.message);
+    });
+    
+    socket.on('close', (hadError) => {
+        console.log(`🔴 WebSocket upgrade socket closed. Had error: ${hadError}`);
+    });
+    
+    try {
+        proxy.upgrade(request, socket, head);
+        console.log('✅ WebSocket upgrade delegated to proxy');
+    } catch (err) {
+        console.error('❌ WebSocket upgrade error:', err.message);
+        socket.end();
+    }
 });
 
 // Graceful shutdown
