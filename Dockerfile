@@ -20,10 +20,10 @@ RUN mkdir -p /home/coder/workspace-admin \
     /home/coder/workspace-mezzpro \
     && chown -R coder:coder /home/coder
 
-# Copy package.json and install dependencies as root
+# Copy Node.js files and startup script
 COPY package.json /home/coder/package.json
 COPY proxy-server.js /home/coder/proxy-server.js
-COPY proxy-start.sh /home/coder/start.sh
+COPY start-both.sh /home/coder/start.sh
 
 # Install Node.js dependencies
 RUN cd /home/coder && npm install --production
