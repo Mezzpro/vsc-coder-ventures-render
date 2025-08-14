@@ -1,0 +1,12 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.startupEditor": "readme",
+  "git.postCommitCommand": "sync",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "window.title": "VSC Coder Ventures - ${folderName}",
+  "editor.fontFamily": "monospace",
+  "editor.fontSize": 14,
+  "files.autoSave": "onFocusChange"
+}

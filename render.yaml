@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: vsc-coder-ventures
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PASSWORD
+        generateValue: true
