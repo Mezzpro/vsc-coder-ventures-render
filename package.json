@@ -1,0 +1,12 @@
+{
+  "name": "vsc-coder-ventures",
+  "version": "1.0.0",
+  "description": "VSC Coder Ventures - Code-Server deployment",
+  "scripts": {
+    "build": "echo 'Installing code-server...' && curl -fsSL https://code-server.dev/install.sh | sh -s -- --method=standalone --prefix=/opt/render && echo 'Build complete'",
+    "start": "echo 'Starting code-server...' && /opt/render/bin/code-server --bind-addr=0.0.0.0:$PORT --auth=password --password=${CODE_SERVER_PASSWORD:-vsc123} --disable-telemetry ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
