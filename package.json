@@ -1,8 +1,25 @@
 {
-  "name": "vsc-coder-ventures",
+  "name": "vsc-coder-ventures-proxy",
   "version": "1.0.0",
-  "description": "VSC Coder Ventures - Code-Server deployment using Docker",
+  "description": "HTTP Proxy for domain-based workspace routing to code-server",
+  "main": "proxy-server.js",
+  "scripts": {
+    "start": "node proxy-server.js",
+    "dev": "node proxy-server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6"
+  },
   "engines": {
-    "node": ">=18"
-  }
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "code-server",
+    "proxy",
+    "workspace",
+    "domain-routing"
+  ],
+  "author": "VSC Coder Ventures",
+  "license": "MIT"
 }

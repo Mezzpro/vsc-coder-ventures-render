@@ -1,10 +1,5 @@
 {
-    "folders": [
-        {
-            "name": "MezzPro Blockchain Platform",
-            "path": "/home/coder/workspace"
-        }
-    ],
+    "folders": [],
     "settings": {
         "workbench.colorTheme": "Default Dark+",
         "workbench.iconTheme": "vs-seti",
