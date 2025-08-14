@@ -26,9 +26,28 @@ app.use('/', (req, res, next) => {
     console.log(`🌐 Request: ${hostname}${req.url}`);
     console.log(`📂 Current folder param: ${folderParam || 'none'}`);
     
+    // Skip redirect for VS Code static assets and system paths
+    if (req.path.startsWith('/_static/') || 
+        req.path.startsWith('/static/') || 
+        req.path.startsWith('/stable-') ||
+        req.path.includes('.js') || 
+        req.path.includes('.css') || 
+        req.path.includes('.ico') || 
+        req.path.includes('.svg') ||
+        req.path.includes('.json')) {
+        console.log(`🔧 VS Code asset, proxying directly`);
+        return next();
+    }
+    
     // If folder parameter already exists, just proxy to code-server
     if (folderParam) {
         console.log(`✅ Folder param exists, proxying to code-server`);
+        return next();
+    }
+    
+    // Only redirect root path and workspace paths
+    if (req.path !== '/' && !req.path.startsWith('/login')) {
+        console.log(`🔧 Non-root path, proxying directly`);
         return next();
     }
     
