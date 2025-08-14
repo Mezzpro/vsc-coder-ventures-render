@@ -1,0 +1,189 @@
+{
+  "folders": [
+    {
+      "name": "MezzPro Blockchain Platform",
+      "path": "."
+    }
+  ],
+  "settings": {
+    // === CYBERPUNK HACKER THEME FOR MEZZPRO ===
+    // Philosophy: Matrix-style terminal aesthetic for blockchain development
+    
+    // CORE DARK THEME
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.iconTheme": "vs-minimal",
+    
+    // HACKER LAYOUT
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "workbench.panel.defaultLocation": "bottom",
+    "window.menuBarVisibility": "compact",
+    "window.commandCenter": true,
+    "window.title": "MezzPro Blockchain Platform - Matrix Terminal",
+    
+    // EDITOR CONFIGURATION
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.maxColumn": 80,
+    "editor.lineNumbers": "on",
+    "editor.renderWhitespace": "boundary",
+    "editor.renderLineHighlight": "all",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.folding": true,
+    "editor.glyphMargin": true,
+    "breadcrumbs.enabled": true,
+    
+    // TERMINAL TYPOGRAPHY - MATRIX STYLE
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'Courier New', 'Lucida Console', 'Monaco', monospace",
+    "editor.fontWeight": "bold",
+    "editor.lineHeight": 1.4,
+    "editor.letterSpacing": 0.8,
+    
+    // MATRIX CURSOR EFFECTS
+    "editor.cursorBlinking": "expand",
+    "editor.cursorStyle": "block",
+    "editor.cursorWidth": 4,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    
+    // TERMINAL STYLING
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "'Courier New', monospace",
+    "terminal.integrated.fontWeight": "bold",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "block",
+    
+    // BLOCKCHAIN DEVELOPMENT OPTIMIZATIONS
+    "debug.console.closeOnEnd": true,
+    "debug.openDebug": "neverOpen", 
+    "extensions.ignoreRecommendations": true,
+    "git.decorations.enabled": true,
+    "scm.diffDecorations": "gutter",
+    
+    // MATRIX GREEN-ON-BLACK COLOR SCHEME
+    "workbench.colorCustomizations": {
+      // CORE MATRIX COLORS
+      "editor.background": "#000000",
+      "editor.foreground": "#00ff41",
+      "editorCursor.foreground": "#00ff41",
+      
+      // SELECTION & HIGHLIGHTS
+      "editor.selectionBackground": "#003300",
+      "editor.lineHighlightBackground": "#001100",
+      "editor.wordHighlightBackground": "#002200",
+      
+      // SIDEBAR & PANELS
+      "sideBar.background": "#0a0a0a",
+      "sideBar.foreground": "#00cc33",
+      "activityBar.background": "#050505",
+      "activityBar.foreground": "#00ff41",
+      "panel.background": "#000000",
+      "panel.border": "#00ff41",
+      
+      // STATUS & TITLE
+      "statusBar.background": "#000000",
+      "statusBar.foreground": "#00ff41",
+      "statusBar.border": "#00ff41",
+      "titleBar.activeBackground": "#000000",
+      "titleBar.activeForeground": "#00ff41",
+      
+      // TABS
+      "tab.activeBackground": "#001100",
+      "tab.activeForeground": "#00ff41",
+      "tab.inactiveBackground": "#000000",
+      "tab.inactiveForeground": "#009922",
+      "tab.border": "#00ff41",
+      
+      // TERMINAL
+      "terminal.background": "#000000",
+      "terminal.foreground": "#00ff41",
+      "terminalCursor.background": "#00ff41",
+      "terminalCursor.foreground": "#000000",
+      
+      // SCROLLBARS & BORDERS
+      "scrollbar.shadow": "#00ff41",
+      "editorRuler.foreground": "#003300",
+      "editorBracketMatch.background": "#006600",
+      "editorBracketMatch.border": "#00ff41",
+      
+      // MINIMAP
+      "minimap.background": "#000000",
+      "minimapSlider.background": "#003300",
+      "minimapSlider.hoverBackground": "#006600"
+    },
+    
+    // MATRIX-STYLE SYNTAX HIGHLIGHTING
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": ["comment"],
+          "settings": {
+            "foreground": "#006600",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": ["string"],
+          "settings": {
+            "foreground": "#00cc33"
+          }
+        },
+        {
+          "scope": ["keyword", "storage.type"],
+          "settings": {
+            "foreground": "#00ff41",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": ["variable", "support.variable"],
+          "settings": {
+            "foreground": "#33ff66"
+          }
+        },
+        {
+          "scope": ["function", "entity.name.function"],
+          "settings": {
+            "foreground": "#66ff99",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": ["constant.numeric"],
+          "settings": {
+            "foreground": "#99ffcc"
+          }
+        }
+      ]
+    },
+    
+    // BLOCKCHAIN PRODUCTIVITY FEATURES
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80, 120],
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120,
+    "workbench.startupEditor": "readme",
+    
+    // GIT INTEGRATION FOR BLOCKCHAIN PROJECTS
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    
+    // PRIVACY & SECURITY
+    "telemetry.telemetryLevel": "off",
+    "update.showReleaseNotes": false,
+    "extensions.showRecommendationsOnlyOnDemand": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.vscode-typescript-next",
+      "esbenp.prettier-vscode",
+      "ms-vscode.vscode-json"
+    ]
+  }
+}

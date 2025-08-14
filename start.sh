@@ -14,7 +14,6 @@ setup_multi_domain() {
     echo "📁 Creating workspace content..."
 
     # Admin workspace content
-    mkdir -p /home/coder/workspace-admin
     cat > /home/coder/workspace-admin/README.md <<'EOF'
 # 🏢 VSC Admin Panel
 
@@ -35,20 +34,23 @@ Welcome to the VSC Coder Ventures administrative workspace.
 EOF
 
     # MezzPro workspace content
-    mkdir -p /home/coder/workspace-mezzpro
     cat > /home/coder/workspace-mezzpro/README.md <<'EOF'
 # ⛓️ MezzPro Blockchain Platform
 
 Welcome to your dedicated blockchain development environment!
 
 ## Platform Features
-- **Dark Theme**: Optimized for blockchain development
+- **Matrix-style interface**: Green-on-black terminal aesthetic
 - **Crypto Focus**: Smart contract development tools
 - **Professional Setup**: Everything for blockchain projects
 
 ## Development Environment
 - **Domain**: mezzpro.xyz  
-- **Theme**: Dark blockchain theme
+- **Theme**: Matrix hacker theme
+- **Font**: Courier New with terminal styling
+
+## Quick Start
+Start building your blockchain projects with this Matrix-inspired setup!
 
 ---
 *MezzPro Blockchain Platform - Professional Development*
@@ -57,13 +59,10 @@ EOF
     # Create project directories
     mkdir -p /home/coder/workspace-admin/projects
     mkdir -p /home/coder/workspace-mezzpro/smart-contracts
+    mkdir -p /home/coder/workspace-mezzpro/dapps
 
-    # Setup Nginx configuration
-    echo "⚙️ Configuring Nginx..."
-    if ! sudo cp /tmp/nginx.conf /etc/nginx/nginx.conf; then
-        echo "❌ Nginx configuration failed"
-        return 1
-    fi
+    # Create nginx temp directories
+    mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/proxy_temp /var/cache/nginx/fastcgi_temp /var/cache/nginx/uwsgi_temp /var/cache/nginx/scgi_temp
 
     # Start code-server in background
     echo "📋 Starting code-server on port 8080..."
@@ -83,13 +82,13 @@ EOF
 
     echo "✅ Code-server is running on port 8080"
 
-    # Start nginx
+    # Start nginx (running as coder user, no sudo needed)
     echo "🌐 Starting Nginx reverse proxy..."
     echo "🔗 Domain routing:"
     echo "   - cradlesystems.xyz → Admin workspace"
-    echo "   - mezzpro.xyz → MezzPro blockchain workspace"
+    echo "   - mezzpro.xyz → MezzPro workspace"
     
-    if ! sudo nginx -g "daemon off;"; then
+    if ! nginx -c /home/coder/nginx/nginx.conf -g "daemon off;"; then
         echo "❌ Nginx failed to start"
         kill $CODE_SERVER_PID 2>/dev/null
         return 1
