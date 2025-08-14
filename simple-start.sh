@@ -148,32 +148,58 @@ fi
 echo "📋 Starting code-server on port ${PORT:-10000}..."
 echo "📂 Workspace: $WORKSPACE_PATH"
 
-# Create a simple redirect HTML page  
-cat > /home/coder/redirect.html <<'EOF'
+# Create index.html with automatic redirect in the root directory
+cat > /home/coder/index.html <<'EOF'
 <!DOCTYPE html>
 <html>
-<head><title>VSC Router</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>VSC Workspace Router</title>
+    <meta http-equiv="refresh" content="0; url=javascript:void(0)">
+    <style>
+        body { background: #000; color: #00ff41; font-family: monospace; text-align: center; padding: 50px; }
+    </style>
+</head>
 <body>
-<script>
-const domains = {
-  'mezzpro.xyz': '/home/coder/workspace-mezzpro',
-  'www.mezzpro.xyz': '/home/coder/workspace-mezzpro', 
-  'cradlesystems.xyz': '/home/coder/workspace-admin',
-  'www.cradlesystems.xyz': '/home/coder/workspace-admin'
-};
-const workspace = domains[location.hostname] || '/home/coder/workspace-admin';
-if (!new URLSearchParams(location.search).get('folder')) {
-  location.href = location.origin + '?folder=' + workspace;
-}
-</script>
-Redirecting...
+    <h2>🚀 Loading Workspace...</h2>
+    <script>
+        const domainWorkspaceMap = {
+            'mezzpro.xyz': '/home/coder/workspace-mezzpro',
+            'www.mezzpro.xyz': '/home/coder/workspace-mezzpro',
+            'cradlesystems.xyz': '/home/coder/workspace-admin',
+            'www.cradlesystems.xyz': '/home/coder/workspace-admin'
+        };
+        
+        function redirectToWorkspace() {
+            const hostname = window.location.hostname;
+            const params = new URLSearchParams(window.location.search);
+            
+            console.log('Domain detected:', hostname);
+            
+            // If folder param already exists, do nothing
+            if (params.get('folder')) {
+                return;
+            }
+            
+            // Get workspace for domain or default to admin
+            const workspace = domainWorkspaceMap[hostname] || '/home/coder/workspace-admin';
+            
+            console.log('Redirecting to workspace:', workspace);
+            
+            // Redirect with folder parameter  
+            window.location.href = `${window.location.origin}/?folder=${workspace}`;
+        }
+        
+        // Execute immediately
+        redirectToWorkspace();
+    </script>
 </body>
 </html>
 EOF
 
 echo "🔄 Domain routing: mezzpro.xyz → MezzPro workspace, cradlesystems.xyz → Admin workspace"
 
-# Start code-server with default workspace
+# Start code-server with the main directory so it can serve index.html
 exec code-server \
     --bind-addr "0.0.0.0:${PORT:-10000}" \
     --auth password \
