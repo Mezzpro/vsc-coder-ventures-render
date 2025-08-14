@@ -1,0 +1,52 @@
+{
+    "folders": [
+        {
+            "name": "MezzPro Blockchain Platform",
+            "path": "/home/coder/workspace"
+        }
+    ],
+    "settings": {
+        "workbench.colorTheme": "Default Dark+",
+        "workbench.iconTheme": "vs-seti",
+        "workbench.colorCustomizations": {
+            "editor.background": "#0a0e1a",
+            "activityBar.background": "#0a0e1a",
+            "sideBar.background": "#0f1419",
+            "statusBar.background": "#1a1f3a",
+            "statusBar.foreground": "#64ffda",
+            "editor.foreground": "#a9b7c6",
+            "editorCursor.foreground": "#64ffda",
+            "terminal.background": "#0a0e1a",
+            "panel.background": "#0f1419",
+            "titleBar.activeBackground": "#1a1f3a",
+            "titleBar.activeForeground": "#64ffda"
+        },
+        "editor.fontFamily": "'JetBrains Mono', 'Cascadia Code', monospace",
+        "editor.fontSize": 14,
+        "editor.fontLigatures": true,
+        "editor.lineHeight": 1.6,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "window.title": "MezzPro Blockchain Platform - ${folderName}",
+        "workbench.startupEditor": "readme",
+        "workbench.editor.showTabs": true,
+        "workbench.activityBar.visible": true,
+        "workbench.statusBar.visible": true,
+        "breadcrumbs.enabled": true,
+        "editor.minimap.enabled": true,
+        "explorer.confirmDelete": false,
+        "git.autofetch": true,
+        "terminal.integrated.fontSize": 13,
+        "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+        "files.autoSave": "onFocusChange"
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.vscode-typescript-next",
+            "esbenp.prettier-vscode",
+            "ms-vscode.vscode-json",
+            "bradlc.vscode-tailwindcss",
+            "ms-vscode.vscode-eslint"
+        ]
+    }
+}

@@ -1,6 +1,11 @@
 # Use the official code-server image (proven to work)
 FROM codercom/code-server:4.103.0
 
+USER root
+
+# Install Nginx for reverse proxy
+RUN apt-get update && apt-get install -y nginx supervisor curl git
+
 USER coder
 
 # Apply VS Code settings for clean interface
@@ -9,23 +14,26 @@ COPY settings.json .local/share/code-server/User/settings.json
 # Use bash shell
 ENV SHELL=/bin/bash
 
-# Install essential packages
-RUN sudo apt-get update && sudo apt-get install -y curl git
-
 # Fix permissions for code-server
 RUN sudo chown -R coder:coder /home/coder/.local
 
-# Create workspace directory
-RUN mkdir -p /home/coder/workspace
+# Create workspace directories
+RUN mkdir -p /home/coder/workspace-admin
+RUN mkdir -p /home/coder/workspace-mezzpro
+
+# Copy configurations
+COPY nginx.conf /tmp/nginx.conf
+COPY start.sh /home/coder/start.sh
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Make scripts executable
+RUN chmod +x /home/coder/start.sh
 
 # Set default working directory
-WORKDIR /home/coder/workspace
-
-# Create welcome file
-RUN echo "# 🚀 VSC Coder Ventures\n\nWelcome to your code-server environment!\n\n## Next Steps:\n1. This is working on Render\n2. We can add workspace configurations\n3. Then connect custom domains\n\n---\n*Testing on Render.com*" > /home/coder/workspace/README.md
+WORKDIR /home/coder
 
 # Port configuration for Render
 ENV PORT=10000
 
-# Start code-server with simple command
-CMD ["code-server", "--bind-addr", "0.0.0.0:10000", "--auth", "password", "/home/coder/workspace"]
+# Use start script as entrypoint
+CMD ["/home/coder/start.sh"]
