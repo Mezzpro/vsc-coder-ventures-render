@@ -27,5 +27,5 @@ RUN echo "# 🚀 VSC Coder Ventures\n\nWelcome to your code-server environment!\
 # Port configuration for Render
 ENV PORT=10000
 
-# Start code-server
-CMD ["dumb-init", "fixuid", "-q", "/usr/bin/entrypoint.sh", "--bind-addr", "0.0.0.0:10000", "--auth", "password", "/home/coder/workspace"]
+# Start code-server with simple command
+CMD ["code-server", "--bind-addr", "0.0.0.0:10000", "--auth", "password", "/home/coder/workspace"]
