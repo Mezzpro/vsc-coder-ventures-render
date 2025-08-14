@@ -47,7 +47,7 @@ app.use('/', (req, res, next) => {
 
 // Proxy all requests to code-server
 const proxyOptions = {
-    target: `http://localhost:${CODE_SERVER_PORT}`,
+    target: `http://127.0.0.1:${CODE_SERVER_PORT}`,
     changeOrigin: true,
     ws: true, // Enable WebSocket proxying for VS Code
     logLevel: 'info',
