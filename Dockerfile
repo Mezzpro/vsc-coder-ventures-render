@@ -35,5 +35,5 @@ WORKDIR /home/coder
 # Port configuration for Render
 ENV PORT=10000
 
-# Fallback: If start.sh fails, run basic code-server
-CMD ["/bin/bash", "-c", "/home/coder/start.sh || code-server --bind-addr 0.0.0.0:10000 --auth password --disable-telemetry /home/coder/workspace"]
+# Start with our custom script
+ENTRYPOINT ["/home/coder/start.sh"]
