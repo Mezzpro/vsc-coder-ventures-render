@@ -22,7 +22,6 @@ RUN mkdir -p /var/log/nginx /var/cache/nginx /var/run \
 # Copy configurations
 COPY nginx.conf /home/coder/nginx/nginx.conf
 COPY start.sh /home/coder/start.sh
-COPY mezzpro-cyberpunk.code-workspace /home/coder/workspace-mezzpro/.vscode/settings.json
 
 # Make everything executable and owned by coder
 RUN chmod +x /home/coder/start.sh \

@@ -61,6 +61,55 @@ EOF
     mkdir -p /home/coder/workspace-mezzpro/smart-contracts
     mkdir -p /home/coder/workspace-mezzpro/dapps
 
+    # Apply Matrix theme settings to MezzPro workspace (hidden from users)
+    mkdir -p /home/coder/workspace-mezzpro/.vscode
+    cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
+{
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.iconTheme": "vs-minimal",
+  "window.title": "MezzPro Blockchain Platform - Matrix Terminal",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'Courier New', 'Lucida Console', 'Monaco', monospace",
+  "editor.fontWeight": "bold",
+  "editor.cursorBlinking": "expand",
+  "editor.cursorStyle": "block",
+  "editor.cursorWidth": 4,
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontFamily": "'Courier New', monospace",
+  "terminal.integrated.fontWeight": "bold",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "block",
+  "workbench.colorCustomizations": {
+    "editor.background": "#000000",
+    "editor.foreground": "#00ff41",
+    "editorCursor.foreground": "#00ff41",
+    "editor.selectionBackground": "#003300",
+    "editor.lineHighlightBackground": "#001100",
+    "sideBar.background": "#0a0a0a",
+    "sideBar.foreground": "#00cc33",
+    "activityBar.background": "#050505",
+    "activityBar.foreground": "#00ff41",
+    "statusBar.background": "#000000",
+    "statusBar.foreground": "#00ff41",
+    "terminal.background": "#000000",
+    "terminal.foreground": "#00ff41",
+    "tab.activeBackground": "#001100",
+    "tab.activeForeground": "#00ff41"
+  },
+  "files.exclude": {
+    "**/.vscode": true,
+    "**/*.code-workspace": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "files.autoSave": "onFocusChange",
+  "workbench.startupEditor": "readme",
+  "git.autofetch": true
+}
+EOF
+
+    # Make .vscode folder hidden from file explorer
+    chmod 700 /home/coder/workspace-mezzpro/.vscode
+
     # Create nginx temp directories
     mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/proxy_temp /var/cache/nginx/fastcgi_temp /var/cache/nginx/uwsgi_temp /var/cache/nginx/scgi_temp
 
