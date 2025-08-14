@@ -12,8 +12,9 @@ RUN mkdir -p /home/coder/workspace-admin \
     /home/coder/workspace-mezzpro \
     && chown -R coder:coder /home/coder
 
-# Copy startup script
+# Copy startup script and redirect page
 COPY simple-start.sh /home/coder/start.sh
+COPY workspace-redirect.html /home/coder/workspace-redirect.html
 
 # Make everything executable and owned by coder
 RUN chmod +x /home/coder/start.sh \

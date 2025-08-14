@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSC Workspace Router</title>
+    <style>
+        body {
+            background: #000;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .loader {
+            font-size: 18px;
+        }
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            33% { content: '.'; }
+            66% { content: '..'; }
+            100% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div>🚀 Routing to workspace<span class="loading-dots"></span></div>
+    </div>
+
+    <script>
+        function getWorkspaceByDomain() {
+            const hostname = window.location.hostname.toLowerCase();
+            
+            // Domain to workspace mapping
+            const domainMap = {
+                'mezzpro.xyz': '/home/coder/workspace-mezzpro',
+                'www.mezzpro.xyz': '/home/coder/workspace-mezzpro',
+                'cradlesystems.xyz': '/home/coder/workspace-admin',
+                'www.cradlesystems.xyz': '/home/coder/workspace-admin',
+                'minqro.xyz': '/home/coder/workspace-minqro', // Future workspace
+                'www.minqro.xyz': '/home/coder/workspace-minqro'
+            };
+            
+            return domainMap[hostname] || '/home/coder/workspace-admin';
+        }
+
+        function redirectToWorkspace() {
+            const currentUrl = new URL(window.location.href);
+            const folderParam = currentUrl.searchParams.get('folder');
+            
+            // If folder parameter already exists, don't redirect
+            if (folderParam) {
+                return;
+            }
+            
+            const workspacePath = getWorkspaceByDomain();
+            
+            // Add folder parameter to current URL
+            currentUrl.searchParams.set('folder', workspacePath);
+            
+            // Redirect to the same URL with folder parameter
+            window.location.href = currentUrl.toString();
+        }
+
+        // Execute redirect immediately
+        redirectToWorkspace();
+        
+        // Fallback timeout in case something goes wrong
+        setTimeout(() => {
+            if (!new URL(window.location.href).searchParams.get('folder')) {
+                window.location.href = window.location.href + '?folder=/home/coder/workspace-admin';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

@@ -148,10 +148,35 @@ fi
 echo "📋 Starting code-server on port ${PORT:-10000}..."
 echo "📂 Workspace: $WORKSPACE_PATH"
 
-# Start code-server with the selected workspace
+# Create a simple redirect HTML page  
+cat > /home/coder/redirect.html <<'EOF'
+<!DOCTYPE html>
+<html>
+<head><title>VSC Router</title></head>
+<body>
+<script>
+const domains = {
+  'mezzpro.xyz': '/home/coder/workspace-mezzpro',
+  'www.mezzpro.xyz': '/home/coder/workspace-mezzpro', 
+  'cradlesystems.xyz': '/home/coder/workspace-admin',
+  'www.cradlesystems.xyz': '/home/coder/workspace-admin'
+};
+const workspace = domains[location.hostname] || '/home/coder/workspace-admin';
+if (!new URLSearchParams(location.search).get('folder')) {
+  location.href = location.origin + '?folder=' + workspace;
+}
+</script>
+Redirecting...
+</body>
+</html>
+EOF
+
+echo "🔄 Domain routing: mezzpro.xyz → MezzPro workspace, cradlesystems.xyz → Admin workspace"
+
+# Start code-server with default workspace
 exec code-server \
     --bind-addr "0.0.0.0:${PORT:-10000}" \
     --auth password \
     --disable-telemetry \
     --disable-update-check \
-    "$WORKSPACE_PATH"
+    /home/coder
