@@ -69,6 +69,8 @@ const proxyOptions = {
     target: `http://127.0.0.1:${CODE_SERVER_PORT}`,
     changeOrigin: true,
     ws: true, // Enable WebSocket proxying for VS Code
+    secure: false, // Allow HTTPS to HTTP proxying
+    xfwd: true, // Add X-Forwarded headers
     logLevel: 'info',
     onError: (err, req, res) => {
         console.error('❌ Proxy error:', err.message);
@@ -93,6 +95,18 @@ const proxyOptions = {
     onProxyReqWs: (proxyReq, req, socket, options, head) => {
         console.log(`🔌 WebSocket proxy request: ${req.url}`);
         console.log(`🔌 WS Headers:`, req.headers);
+        
+        // Fix WebSocket headers for HTTPS to HTTP proxying
+        proxyReq.setHeader('Host', `127.0.0.1:${CODE_SERVER_PORT}`);
+        proxyReq.setHeader('Origin', `http://127.0.0.1:${CODE_SERVER_PORT}`);
+        
+        // Preserve original headers that code-server needs
+        if (req.headers.cookie) {
+            proxyReq.setHeader('Cookie', req.headers.cookie);
+        }
+        
+        console.log(`🔧 Modified WS headers for internal connection`);
+        
         proxyReq.on('error', (err) => {
             console.error('❌ WebSocket proxy request error:', err.message);
         });
