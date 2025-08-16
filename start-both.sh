@@ -118,6 +118,10 @@ echo "📦 Installing Node.js dependencies..."
 cd /home/coder
 npm install --production
 
+# Install the custom extension
+echo "🔧 Installing MezzPro Interface extension..."
+code-server --install-extension /home/coder/workspace-extensions/mezzpro-interface
+
 # Start code-server in background on port 8080
 echo "📋 Starting code-server on port 8080..."
 unset PORT  # Don't let code-server use PORT env var
@@ -126,7 +130,6 @@ code-server \
     --auth password \
     --disable-telemetry \
     --disable-update-check \
-    --extra-extensions-dir /home/coder/workspace-extensions \
     /home/coder &
 
 CODE_SERVER_PID=$!
