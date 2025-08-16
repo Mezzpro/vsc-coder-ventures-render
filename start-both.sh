@@ -47,71 +47,11 @@ mkdir -p /home/coder/workspace-mezzpro/dapps
 
 # Apply Matrix theme settings to MezzPro workspace (hidden from users)
 mkdir -p /home/coder/workspace-mezzpro/.vscode
-cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
-{
-    // --- PRESERVE EXISTING THEME ---
-    "workbench.colorTheme": "Default Dark+",
-    "workbench.iconTheme": "vs-minimal",
-    "editor.fontFamily": "'Courier New', 'Lucida Console', 'Monaco', monospace",
-    "terminal.integrated.fontFamily": "'Courier New', monospace",
-    "workbench.colorCustomizations": {
-        "editor.background": "#000000",
-        "editor.foreground": "#00ff41",
-        "editorCursor.foreground": "#00ff41",
-        "editor.selectionBackground": "#003300",
-        "editor.lineHighlightBackground": "#001100",
-        "sideBar.background": "#0a0a0a",
-        "sideBar.foreground": "#00cc33",
-        "activityBar.background": "#050505",
-        "activityBar.foreground": "#00ff41",
-        "statusBar.background": "#000000",
-        "statusBar.foreground": "#00ff41",
-        "terminal.background": "#000000",
-        "terminal.foreground": "#00ff41",
-        "tab.activeBackground": "#001100",
-        "tab.activeForeground": "#00ff41",
-        "tab.inactiveBackground": "#000000",
-        "tab.inactiveForeground": "#009922"
-    },
 
-    // --- NEW: HIDE ALL UI FOR CLEAN LOOK ---
-    "workbench.activityBar.visible": false,
-    "workbench.statusBar.visible": false,
-    "editor.minimap.enabled": false,
-    "workbench.editor.showTabs": false,
-    "breadcrumbs.enabled": false,
-    "window.menuBarVisibility": "hidden",
-    "workbench.startupEditor": "none",
-    "window.commandCenter": false,
-
-    // --- NEW: SET TERMINAL LOCATION ---
-    "workbench.panel.defaultLocation": "right",
-
-    // --- OTHER SETTINGS ---
-    "files.exclude": {
-        "**/.vscode": true,
-        "**/*.code-workspace": true
-    },
-    "files.autoSave": "onFocusChange"
-}
-EOF'
 
 # Apply admin theme settings (hidden from users)
 mkdir -p /home/coder/workspace-admin/.vscode
-cat > /home/coder/workspace-admin/.vscode/settings.json <<'EOF'
-{
-  "workbench.colorTheme": "Default Dark+",
-  "window.title": "VSC Admin Panel",
-  "editor.fontSize": 14,
-  "editor.fontFamily": "'Cascadia Code', 'Courier New', monospace",
-  "files.exclude": {
-    "**/.vscode": true,
-    "**/*.code-workspace": true
-  },
-  "files.autoSave": "onFocusChange",
-  "workbench.startupEditor": "readme"
-}
-EOF
+
 
 # Make .vscode folders less visible
 chmod 700 /home/coder/workspace-mezzpro/.vscode
