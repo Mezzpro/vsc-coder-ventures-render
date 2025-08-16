@@ -24,7 +24,7 @@ RUN mkdir -p /home/coder/workspace-admin \
 COPY package.json /home/coder/package.json
 COPY proxy-server.js /home/coder/proxy-server.js
 COPY start-both.sh /home/coder/start.sh
-COPY workspace-extensions /home/coder/workspace-extensions
+COPY --chown=coder:coder workspace-extensions/mezzpro-interface /home/coder/.local/share/code-server/extensions/mezzpro.mezzpro-interface-0.0.1
 
 # Install Node.js dependencies
 RUN cd /home/coder && npm install --production
