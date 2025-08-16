@@ -1,56 +1,144 @@
 {
-  "folders": [],
+  "folders": [
+  ],
   "settings": {
-    // --- PRESERVE EXISTING THEME ---
-    "workbench.colorTheme": "Default Dark+",
-    "workbench.iconTheme": "vs-minimal",
-    "editor.fontFamily": "\"Courier New\", \"Lucida Console\", \"Monaco\", \"monospace\"",
-    "terminal.integrated.fontFamily": "\"Courier New\", \"monospace\"",
-    "workbench.colorCustomizations": {
-        "editor.background": "#000000",
-        "editor.foreground": "#00ff41",
-        "editorCursor.foreground": "#00ff41",
-        "editor.selectionBackground": "#003300",
-        "editor.lineHighlightBackground": "#001100",
-        "sideBar.background": "#0a0a0a",
-        "sideBar.foreground": "#00cc33",
-        "activityBar.background": "#050505",
-        "activityBar.foreground": "#00ff41",
-        "statusBar.background": "#000000",
-        "statusBar.foreground": "#00ff41",
-        "terminal.background": "#000000",
-        "terminal.foreground": "#00ff41",
-        "tab.activeBackground": "#001100",
-        "tab.activeForeground": "#00ff41",
-        "tab.inactiveBackground": "#000000",
-        "tab.inactiveForeground": "#009922"
-    },
-
-    // --- NEW: HIDE ALL UI FOR CLEAN LOOK ---
+    // === ZEN MINIMALIST THEME ===
+    // Philosophy: Radical simplicity, meditation-like coding experience
+    
+    // CORE VISUAL THEME
+    "workbench.colorTheme": "Default Light+",
+    "workbench.iconTheme": null,
+    
+    // RADICAL UI MINIMIZATION
     "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": false,
-    "editor.minimap.enabled": false,
-    "workbench.editor.showTabs": false,
-    "breadcrumbs.enabled": false,
-    "window.menuBarVisibility": "hidden",
-    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "left",
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.panel.opensMaximized": "never",
+    "window.menuBarVisibility": "toggle",
     "window.commandCenter": false,
-
-    // --- NEW: SET TERMINAL LOCATION ---
-    "workbench.panel.defaultLocation": "right",
-
-    // --- OTHER SETTINGS ---
-    "files.exclude": {
-        "**/.vscode": true,
-        "**/*.code-workspace": true
+    
+    // HIDE CONFIGURATION PANELS (KEEP FILE EXPLORER)
+    "explorer.openEditors.visible": 0,
+    "explorer.decorations.badges": false,
+    "explorer.decorations.colors": false,
+    "workbench.view.extensions.state.hidden": true,
+    "workbench.view.extension.workspaceConfigPlus.state.hidden": true,
+    
+    // EDITOR SIMPLIFICATION
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "off",
+    "editor.renderWhitespace": "none",
+    "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": false,
+    "editor.folding": false,
+    "editor.glyphMargin": false,
+    "editor.renderIndentGuides": false,
+    "breadcrumbs.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.overviewRulerBorder": false,
+    
+    // TYPOGRAPHY - MAXIMUM READABILITY
+    "editor.fontSize": 20,
+    "editor.fontFamily": "'SF Pro Display', 'Segoe UI', system-ui, sans-serif",
+    "editor.fontWeight": "300",
+    "editor.lineHeight": 1.8,
+    "editor.letterSpacing": 0.5,
+    
+    // ZEN MODE CONFIGURATION
+    "workbench.editor.showTabs": "none",
+    "zenMode.centerLayout": true,
+    "zenMode.hideLineNumbers": true,
+    "zenMode.hideTabs": true,
+    "zenMode.hideStatusBar": true,
+    "zenMode.hideActivityBar": true,
+    "zenMode.fullScreen": false,
+    
+    // CURSOR & INTERACTIONS
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "block",
+    "editor.cursorWidth": 2,
+    "editor.smoothScrolling": false,
+    
+    // TERMINAL MINIMIZATION
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "'SF Mono', Consolas, monospace",
+    "terminal.integrated.tabs.enabled": false,
+    
+    // BUSINESS USER OPTIMIZATIONS - HIDE DEVELOPER FEATURES
+    "debug.console.closeOnEnd": true,
+    "debug.openDebug": "neverOpen",
+    "extensions.ignoreRecommendations": true,
+    "git.openRepositoryInParentFolders": "never",
+    "scm.diffDecorations": "none",
+    
+    // PURE WHITE AESTHETIC
+    "workbench.colorCustomizations": {
+      "editor.background": "#ffffff",
+      "editor.foreground": "#2c2c2c",
+      "editorCursor.foreground": "#2c2c2c",
+      "editor.selectionBackground": "#e8e8e8",
+      "editor.lineHighlightBackground": "#fafafa",
+      "sideBar.background": "#f8f8f8",
+      "activityBar.background": "#f0f0f0",
+      "panel.background": "#f8f8f8",
+      "statusBar.background": "#f0f0f0",
+      "titleBar.activeBackground": "#ffffff",
+      "tab.activeBackground": "#ffffff",
+      "tab.inactiveBackground": "#f8f8f8"
     },
-    "files.autoSave": "onFocusChange"
+    
+    // MONOCHROME SYNTAX (MINIMAL DISTRACTION)
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": ["comment"],
+          "settings": {
+            "foreground": "#999999",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": ["string", "keyword", "variable", "function", "class"],
+          "settings": {
+            "foreground": "#2c2c2c"
+          }
+        }
+      ]
+    },
+    
+    // FILE MANAGEMENT
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2000,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    
+    // HIDE BUSINESS-IRRELEVANT FEATURES & VSCODE BRANDING
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "workbench.welcomePage.walkthroughs.openOnInstall": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "telemetry.telemetryLevel": "off",
+    "update.showReleaseNotes": false,
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "extensions.ignoreRecommendations": true,
+    
+    // HIDE TERMINAL BY DEFAULT
+    "terminal.integrated.showExitAlert": false,
+    "workbench.panel.opens": "never",
+    
+    // CUSTOM WINDOW TITLE
+    "window.title": "Zen Minimalist",
+    "window.titleSeparator": " • ",
+    
+    // HIDE CONFIGURATION PANELS COMPLETELY
+    "workbench.view.extensions.state.hidden": true,
+    "workbench.activityBar.iconClickBehavior": "hide",
+    "problems.visibility": false
   },
   "extensions": {
-    "recommendations": [
-      "ms-vscode.vscode-typescript-next",
-      "esbenp.prettier-vscode",
-      "ms-vscode.vscode-json"
-    ]
+    "recommendations": []
   }
 }
