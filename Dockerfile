@@ -24,6 +24,7 @@ RUN mkdir -p /home/coder/workspace-admin \
 COPY package.json /home/coder/package.json
 COPY proxy-server.js /home/coder/proxy-server.js
 COPY start-both.sh /home/coder/start.sh
+COPY workspace-extensions /home/coder/workspace-extensions
 
 # Install Node.js dependencies
 RUN cd /home/coder && npm install --production

@@ -126,6 +126,7 @@ code-server \
     --auth password \
     --disable-telemetry \
     --disable-update-check \
+    --extra-extensions-dir /home/coder/workspace-extensions \
     /home/coder &
 
 CODE_SERVER_PID=$!
