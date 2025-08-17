@@ -5,17 +5,42 @@ echo "🚀 Starting VSC Coder Ventures with HTTP Proxy..."
 # Create workspace directories
 echo "📁 Setting up workspaces..."
 
-# Create workspace directories
-mkdir -p /home/coder/workspace-admin/projects
-mkdir -p /home/coder/workspace-mezzpro/smart-contracts
-mkdir -p /home/coder/workspace-mezzpro/dapps
+# Create workspace directories (only what's needed for functionality)
+mkdir -p /home/coder/workspace-admin
+mkdir -p /home/coder/workspace-mezzpro
 
-# Create .vscode directories
+# Create .vscode directories and extract settings from workspace files
 mkdir -p /home/coder/workspace-admin/.vscode
 mkdir -p /home/coder/workspace-mezzpro/.vscode
 
-# Note: Workspace-specific settings are loaded from the .code-workspace files when opening workspaces
-# The .vscode folders are created here but settings come from workspaces/cradle-admin.code-workspace and workspaces/mezzpro.code-workspace
+# Extract settings from workspace files and apply them to folders
+echo "🎨 Applying workspace-specific themes and settings..."
+
+# Extract settings from cradle-admin workspace using jq
+if command -v jq >/dev/null 2>&1; then
+    jq '.settings' /home/coder/workspaces/cradle-admin.code-workspace > /home/coder/workspace-admin/.vscode/settings.json
+    jq '.settings' /home/coder/workspaces/mezzpro.code-workspace > /home/coder/workspace-mezzpro/.vscode/settings.json
+    echo "✅ Workspace settings applied via jq"
+else
+    # Fallback: Use node to extract settings
+    node -e "
+    const fs = require('fs');
+    
+    // Extract cradle admin settings
+    const cradleWs = JSON.parse(fs.readFileSync('/home/coder/workspaces/cradle-admin.code-workspace', 'utf8'));
+    fs.writeFileSync('/home/coder/workspace-admin/.vscode/settings.json', JSON.stringify(cradleWs.settings, null, 2));
+    
+    // Extract mezzpro settings  
+    const mezzproWs = JSON.parse(fs.readFileSync('/home/coder/workspaces/mezzpro.code-workspace', 'utf8'));
+    fs.writeFileSync('/home/coder/workspace-mezzpro/.vscode/settings.json', JSON.stringify(mezzproWs.settings, null, 2));
+    
+    console.log('✅ Workspace settings applied via node');
+    "
+fi
+
+# Hide .vscode folders from user view
+chmod 700 /home/coder/workspace-admin/.vscode
+chmod 700 /home/coder/workspace-mezzpro/.vscode
 
 echo "✅ Workspaces ready!"
 

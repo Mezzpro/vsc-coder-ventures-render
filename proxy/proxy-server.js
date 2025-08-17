@@ -2,7 +2,7 @@ const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
-// Domain to workspace mapping
+// Domain to workspace folder mapping (settings applied from workspace files at startup)
 const DOMAIN_WORKSPACE_MAP = {
     'mezzpro.xyz': '/home/coder/workspace-mezzpro',
     'www.mezzpro.xyz': '/home/coder/workspace-mezzpro',
