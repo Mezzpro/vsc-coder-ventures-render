@@ -2,60 +2,20 @@
 
 echo "🚀 Starting VSC Coder Ventures with HTTP Proxy..."
 
-# Create workspace content (same as before)
+# Create workspace directories
 echo "📁 Setting up workspaces..."
 
-# Admin workspace content
-cat > /home/coder/workspace-admin/README.md <<'EOF'
-# 🏢 VSC Admin Panel
-
-Welcome to the VSC Coder Ventures administrative workspace.
-
-## Current Setup
-- **Domain**: cradlesystems.xyz
-- **Theme**: Default Dark+
-- **Environment**: Administrative
-
----
-*VSC Coder Ventures - Admin Panel*
-EOF
-
-# MezzPro workspace content
-cat > /home/coder/workspace-mezzpro/README.md <<'EOF'
-# ⛓️ MezzPro Blockchain Platform
-
-Welcome to your dedicated blockchain development environment!
-
-## Platform Features
-- **Matrix-style interface**: Green-on-black terminal aesthetic
-- **Crypto Focus**: Smart contract development tools
-- **Professional Setup**: Everything for blockchain projects
-
-## Development Environment
-- **Domain**: mezzpro.xyz  
-- **Theme**: Matrix hacker theme
-- **Font**: Courier New with terminal styling
-
----
-*MezzPro Blockchain Platform*
-EOF
-
-# Create project directories
+# Create workspace directories
 mkdir -p /home/coder/workspace-admin/projects
 mkdir -p /home/coder/workspace-mezzpro/smart-contracts
 mkdir -p /home/coder/workspace-mezzpro/dapps
 
-# Apply Matrix theme settings to MezzPro workspace (hidden from users)
+# Create .vscode directories
+mkdir -p /home/coder/workspace-admin/.vscode
 mkdir -p /home/coder/workspace-mezzpro/.vscode
 
-
-# Apply admin theme settings (hidden from users)
-mkdir -p /home/coder/workspace-admin/.vscode
-
-
-# Make .vscode folders less visible
-chmod 700 /home/coder/workspace-mezzpro/.vscode
-chmod 700 /home/coder/workspace-admin/.vscode
+# Note: Workspace-specific settings are loaded from the .code-workspace files when opening workspaces
+# The .vscode folders are created here but settings come from workspaces/cradle-admin.code-workspace and workspaces/mezzpro.code-workspace
 
 echo "✅ Workspaces ready!"
 

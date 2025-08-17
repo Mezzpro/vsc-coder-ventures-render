@@ -20,10 +20,11 @@ RUN mkdir -p /home/coder/workspace-admin \
     /home/coder/workspace-mezzpro \
     && chown -R coder:coder /home/coder
 
-# Copy Node.js files and startup script
+# Copy Node.js files, startup script, and workspace configurations
 COPY package.json /home/coder/package.json
-COPY proxy-server.js /home/coder/proxy-server.js
-COPY start-both.sh /home/coder/start.sh
+COPY proxy/proxy-server.js /home/coder/proxy-server.js
+COPY scripts/start-both-services.sh /home/coder/start.sh
+COPY workspaces/ /home/coder/workspaces/
 
 
 # Install Node.js dependencies
@@ -37,7 +38,7 @@ RUN chmod +x /home/coder/start.sh \
 USER coder
 
 # Apply VS Code settings
-COPY --chown=coder:coder settings.json .local/share/code-server/User/settings.json
+COPY --chown=coder:coder config/vscode-settings.json .local/share/code-server/User/settings.json
 
 # Use bash shell
 ENV SHELL=/bin/bash

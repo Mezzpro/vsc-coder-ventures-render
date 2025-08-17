@@ -7,9 +7,7 @@ const DOMAIN_WORKSPACE_MAP = {
     'mezzpro.xyz': '/home/coder/workspace-mezzpro',
     'www.mezzpro.xyz': '/home/coder/workspace-mezzpro',
     'cradlesystems.xyz': '/home/coder/workspace-admin',
-    'www.cradlesystems.xyz': '/home/coder/workspace-admin',
-    'minqro.xyz': '/home/coder/workspace-minqro',
-    'www.minqro.xyz': '/home/coder/workspace-minqro'
+    'www.cradlesystems.xyz': '/home/coder/workspace-admin'
 };
 
 // Default workspace for unknown domains

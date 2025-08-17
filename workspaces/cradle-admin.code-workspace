@@ -2,9 +2,6 @@
   "folders": [
   ],
   "settings": {
-    // === ZEN MINIMALIST THEME ===
-    // Philosophy: Radical simplicity, meditation-like coding experience
-    
     // CORE VISUAL THEME
     "workbench.colorTheme": "Default Light+",
     "workbench.iconTheme": null,
@@ -130,7 +127,7 @@
     "workbench.panel.opens": "never",
     
     // CUSTOM WINDOW TITLE
-    "window.title": "Zen Minimalist",
+    "window.title": "Cradle Systems Admin Panel",
     "window.titleSeparator": " • ",
     
     // HIDE CONFIGURATION PANELS COMPLETELY

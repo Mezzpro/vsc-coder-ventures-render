@@ -48,7 +48,7 @@ const DOMAIN_WORKSPACE_MAP = {
 - Handles authentication normally
 - Serves VS Code interface with workspace parameter
 
-#### **4. Startup Script (`proxy-start.sh`)**
+#### **4. Startup Script (`scripts/start-proxy.sh`)**
 - Sets up workspaces and themes
 - Starts code-server on port 8080
 - Starts HTTP proxy on port 10000
