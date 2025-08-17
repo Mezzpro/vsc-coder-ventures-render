@@ -135,8 +135,8 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
   "extensions.showRecommendationsOnlyOnDemand": true,
   "window.title": "MezzPro Blockchain Platform",
   "workbench.editor.showTabs": "single",
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.badges": false,
   "explorer.decorations.colors": false,
@@ -179,7 +179,8 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
     "**/node_modules": true
   },
   "workbench.editorAssociations": {
-    "*.html": "lyne-inc.html-speed-viewer"
+    "*.html": "lyne-inc.html-speed-viewer",
+    "*.md": "vscode.markdown.preview.editor"
   },
   "html.autoClosingTags": true,
   "workbench.editor.enablePreview": true,
@@ -188,7 +189,16 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
   "extensions.autoInstall": ["lyne-inc.html-speed-viewer"],
   "htmlspeedviewer.enableAutoRefresh": true,
   "htmlspeedviewer.showInTab": true,
-  "htmlspeedviewer.openInPreview": true
+  "htmlspeedviewer.openInPreview": true,
+  "workbench.editor.chat.enabled": true,
+  "workbench.editor.processExplorer.enabled": true,
+  "workbench.editor.terminalEditor.enabled": true,
+  "workbench.editor.imagePreview.enabled": true,
+  "workbench.editor.audioPreview.enabled": true,
+  "workbench.editor.videoPreview.enabled": true,
+  "workbench.editor.markdownPreview.enabled": true,
+  "workbench.editor.simpleBrowser.enabled": true,
+  "workbench.editor.livePreview.enabled": true
 }
 EOF
 
