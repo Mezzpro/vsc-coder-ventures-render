@@ -22,6 +22,9 @@ bash /home/coder/scripts/themes/apply-mezzpro-theme.sh
 # Apply Cradle theme  
 bash /home/coder/scripts/themes/apply-cradle-theme.sh
 
+# Create business content for MezzPro
+bash /home/coder/scripts/content/create-mezzpro-business.sh
+
 # Hide .vscode folders from user view
 chmod 700 /home/coder/workspace-admin/.vscode
 chmod 700 /home/coder/workspace-mezzpro/.vscode
