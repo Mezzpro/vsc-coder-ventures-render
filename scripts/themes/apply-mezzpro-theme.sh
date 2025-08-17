@@ -177,8 +177,23 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
     "**/.vscode": true,
     "**/.git": true,
     "**/node_modules": true
-  }
+  },
+  "workbench.editorAssociations": {
+    "*.html": "lyne-inc.html-speed-viewer"
+  },
+  "html.autoClosingTags": true,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.startupEditor": "none",
+  "extensions.autoInstall": ["lyne-inc.html-speed-viewer"],
+  "htmlspeedviewer.enableAutoRefresh": true,
+  "htmlspeedviewer.showInTab": true,
+  "htmlspeedviewer.openInPreview": true
 }
 EOF
+
+# Install HTML Speed Viewer extension
+echo "📦 Installing HTML Speed Viewer extension..."
+code-server --install-extension lyne-inc.html-speed-viewer --force
 
 echo "✅ MezzPro Matrix theme applied"
