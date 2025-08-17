@@ -20,10 +20,11 @@ RUN mkdir -p /home/coder/workspace-admin \
     /home/coder/workspace-mezzpro \
     && chown -R coder:coder /home/coder
 
-# Copy Node.js files, startup script, and workspace configurations
+# Copy Node.js files, startup script, theme scripts, and workspace configurations
 COPY package.json /home/coder/package.json
 COPY proxy/proxy-server.js /home/coder/proxy-server.js
 COPY scripts/start-both-services.sh /home/coder/start.sh
+COPY scripts/themes/ /home/coder/scripts/themes/
 COPY workspaces/ /home/coder/workspaces/
 
 
@@ -32,6 +33,7 @@ RUN cd /home/coder && npm install --production
 
 # Make everything executable and owned by coder
 RUN chmod +x /home/coder/start.sh \
+    && chmod +x /home/coder/scripts/themes/*.sh \
     && chown -R coder:coder /home/coder
 
 # Switch back to coder user
