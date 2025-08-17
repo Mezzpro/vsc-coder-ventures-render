@@ -198,12 +198,23 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
   "workbench.editor.videoPreview.enabled": true,
   "workbench.editor.markdownPreview.enabled": true,
   "workbench.editor.simpleBrowser.enabled": true,
-  "workbench.editor.livePreview.enabled": true
+  "workbench.editor.livePreview.enabled": true,
+  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "livePreview.showServerStatusNotifications": false,
+  "html.suggest.html5": false,
+  "emmet.showExpandedAbbreviation": "never",
+  "html.format.enable": false,
+  "html.validate.scripts": false,
+  "html.validate.styles": false
 }
 EOF
 
 # Install HTML Speed Viewer extension
 echo "📦 Installing HTML Speed Viewer extension..."
 code-server --install-extension lyne-inc.html-speed-viewer --force
+
+# Install Live Preview extension
+echo "📦 Installing Live Preview extension..."
+code-server --install-extension ms-vscode.live-server --force
 
 echo "✅ MezzPro Matrix theme applied"
