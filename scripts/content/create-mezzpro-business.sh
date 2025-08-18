@@ -4,7 +4,7 @@
 echo "🏢 Creating MezzPro business interface..."
 
 # Create MezzPro Dashboard HTML
-cat > /home/coder/workspace-mezzpro/📊_Dashboard.html <<'EOF'
+cat > /home/coder/workspace-mezzpro/Dashboard.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,7 +164,7 @@ cat > /home/coder/workspace-mezzpro/📊_Dashboard.html <<'EOF'
 EOF
 
 # Create MezzPro Pricing HTML
-cat > /home/coder/workspace-mezzpro/💰_Pricing.html <<'EOF'
+cat > /home/coder/workspace-mezzpro/Pricing.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -335,7 +335,7 @@ cat > /home/coder/workspace-mezzpro/💰_Pricing.html <<'EOF'
 EOF
 
 # Create MezzPro Analytics HTML
-cat > /home/coder/workspace-mezzpro/📈_Analytics.html <<'EOF'
+cat > /home/coder/workspace-mezzpro/Analytics.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -504,7 +504,7 @@ cat > /home/coder/workspace-mezzpro/📈_Analytics.html <<'EOF'
 EOF
 
 # Create MezzPro Tools HTML
-cat > /home/coder/workspace-mezzpro/🔧_Tools.html <<'EOF'
+cat > /home/coder/workspace-mezzpro/Tools.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -723,21 +723,21 @@ cat > /home/coder/workspace-mezzpro/🔧_Tools.html <<'EOF'
 EOF
 
 # Create a simple launcher script for users
-cat > /home/coder/workspace-mezzpro/🚀_Start_Here.md <<'EOF'
+cat > /home/coder/workspace-mezzpro/Start_Here.md <<'EOF'
 # 🚀 Welcome to MezzPro Blockchain Platform
 
 ## Quick Start - Click on any section:
 
-### 📊 [Dashboard](📊_Dashboard.html)
+### 📊 [Dashboard](Dashboard.html)
 View real-time blockchain analytics and platform status
 
-### 💰 [Pricing](💰_Pricing.html) 
+### 💰 [Pricing](Pricing.html) 
 Explore our blockchain development plans
 
-### 📈 [Analytics](📈_Analytics.html)
+### 📈 [Analytics](Analytics.html)
 Access detailed performance metrics and charts
 
-### 🔧 [Tools](🔧_Tools.html)
+### 🔧 [Tools](Tools.html)
 Use our blockchain development and management tools
 
 ---

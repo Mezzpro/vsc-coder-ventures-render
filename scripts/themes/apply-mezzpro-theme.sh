@@ -213,8 +213,8 @@ EOF
 echo "📦 Installing HTML Speed Viewer extension..."
 code-server --install-extension lyne-inc.html-speed-viewer --force
 
-# Install Live Preview extension
-echo "📦 Installing Live Preview extension..."
-code-server --install-extension ms-vscode.live-server --force
+# Install Live Preview extension (commented out due to 401 errors)
+# echo "📦 Installing Live Preview extension..."
+# code-server --install-extension ms-vscode.live-server --force
 
 echo "✅ MezzPro Matrix theme applied"
