@@ -20,12 +20,13 @@ RUN mkdir -p /home/coder/workspace-admin \
     /home/coder/workspace-mezzpro \
     && chown -R coder:coder /home/coder
 
-# Copy Node.js files, startup script, theme scripts, content scripts, and workspace configurations
+# Copy Node.js files, startup script, theme scripts, content scripts, extensions, and workspace configurations
 COPY package.json /home/coder/package.json
 COPY proxy/proxy-server.js /home/coder/proxy-server.js
 COPY scripts/start-both-services.sh /home/coder/start.sh
 COPY scripts/themes/ /home/coder/scripts/themes/
 COPY scripts/content/ /home/coder/scripts/content/
+COPY extensions/ /home/coder/extensions/
 COPY workspaces/ /home/coder/workspaces/
 
 

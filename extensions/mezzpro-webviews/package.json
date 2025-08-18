@@ -1,0 +1,62 @@
+{
+  "name": "mezzpro-webviews",
+  "displayName": "MezzPro Business Webviews",
+  "description": "Multiple webview tabs for MezzPro business sections",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "publisher": "mezzpro",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "mezzpro.openDashboard",
+        "title": "MezzPro: Open Dashboard",
+        "category": "MezzPro"
+      },
+      {
+        "command": "mezzpro.openPricing", 
+        "title": "MezzPro: Open Pricing",
+        "category": "MezzPro"
+      },
+      {
+        "command": "mezzpro.openAnalytics",
+        "title": "MezzPro: Open Analytics", 
+        "category": "MezzPro"
+      },
+      {
+        "command": "mezzpro.openTools",
+        "title": "MezzPro: Open Tools",
+        "category": "MezzPro"
+      },
+      {
+        "command": "mezzpro.openAllSections",
+        "title": "MezzPro: Open All Sections",
+        "category": "MezzPro"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "mezzpro.openDashboard",
+        "key": "ctrl+shift+1"
+      },
+      {
+        "command": "mezzpro.openPricing",
+        "key": "ctrl+shift+2"
+      },
+      {
+        "command": "mezzpro.openAnalytics",
+        "key": "ctrl+shift+3"
+      },
+      {
+        "command": "mezzpro.openTools", 
+        "key": "ctrl+shift+4"
+      }
+    ]
+  }
+}

@@ -219,4 +219,8 @@ code-server --install-extension lyne-inc.html-speed-viewer --force
 echo "📦 Installing Live Preview extension..."
 code-server --install-extension ms-vscode.live-server --force
 
-echo "✅ MezzPro Matrix theme applied"
+# Install custom MezzPro Webviews extension
+echo "🚀 Installing MezzPro Webviews extension..."
+code-server --install-extension /home/coder/extensions/mezzpro-webviews --force
+
+echo "✅ MezzPro Matrix theme and extensions applied"
