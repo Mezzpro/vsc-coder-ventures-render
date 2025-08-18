@@ -179,7 +179,7 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
     "**/node_modules": true
   },
   "workbench.editorAssociations": {
-    "*.html": "lyne-inc.html-speed-viewer",
+    "*.html": "default",
     "*.md": "vscode.markdown.preview.editor"
   },
   "html.autoClosingTags": true,
