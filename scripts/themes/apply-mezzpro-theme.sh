@@ -188,10 +188,6 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
   "workbench.startupEditor": "none",
   "workbench.editor.showTabs": "multiple",
   "workbench.editor.tabSizing": "fit",
-  "extensions.autoInstall": ["lyne-inc.html-speed-viewer"],
-  "htmlspeedviewer.enableAutoRefresh": true,
-  "htmlspeedviewer.showInTab": true,
-  "htmlspeedviewer.openInPreview": true,
   "workbench.editor.chat.enabled": true,
   "workbench.editor.processExplorer.enabled": true,
   "workbench.editor.terminalEditor.enabled": true,
@@ -211,16 +207,15 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
 }
 EOF
 
-# Install HTML Speed Viewer extension
-echo "📦 Installing HTML Speed Viewer extension..."
-code-server --install-extension lyne-inc.html-speed-viewer --force
-
 # Install Live Preview extension
 echo "📦 Installing Live Preview extension..."
 code-server --install-extension ms-vscode.live-server --force
 
 # Install custom MezzPro Webviews extension
 echo "🚀 Installing MezzPro Webviews extension..."
-code-server --install-extension /home/coder/extensions/mezzpro-webviews --force
+EXTENSIONS_DIR="/home/coder/.local/share/code-server/extensions"
+mkdir -p "$EXTENSIONS_DIR"
+cp -r /home/coder/extensions/mezzpro-webviews "$EXTENSIONS_DIR/mezzpro.mezzpro-webviews-1.0.0"
+echo "✅ MezzPro Webviews extension copied to extensions directory"
 
 echo "✅ MezzPro Matrix theme and extensions applied"
