@@ -183,9 +183,11 @@ cat > /home/coder/workspace-mezzpro/.vscode/settings.json <<'EOF'
     "*.md": "vscode.markdown.preview.editor"
   },
   "html.autoClosingTags": true,
-  "workbench.editor.enablePreview": true,
-  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.startupEditor": "none",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.tabSizing": "fit",
   "extensions.autoInstall": ["lyne-inc.html-speed-viewer"],
   "htmlspeedviewer.enableAutoRefresh": true,
   "htmlspeedviewer.showInTab": true,
